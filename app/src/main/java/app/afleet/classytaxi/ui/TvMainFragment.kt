@@ -118,6 +118,7 @@ class TvMainFragment : DetailsSupportFragment() {
             ViewModelProviders.of(requireActivity()).get(FirebaseUserViewModel::class.java)
         subscriptionsStatusViewModel =
             ViewModelProviders.of(requireActivity()).get(SubscriptionStatusViewModel::class.java)
+        //   TODO try this: ViewModelProvider(requireActivity()).get(SubscriptionStatusViewModel::class.java)
         billingViewModel =
             ViewModelProviders.of(requireActivity()).get(BillingViewModel::class.java)
         spinnerFragment = SpinnerFragment()
