@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "66645860767",
+    "project_id": "classytaxiappkotlin-7bb37",
+    "storage_bucket": "classytaxiappkotlin-7bb37.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:66645860767:android:e677c9a83da586fd969daa",
+        "android_client_info": {
+          "package_name": "app.afleet.classytaxi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "66645860767-vld4saf0brhb4j9odl98t26a3fh5r3fi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.afleet.classytaxi",
+            "certificate_hash": "f1c4780f11bfe85e6597ea85b3c209dd5de094b0"
+          }
+        },
+        {
+          "client_id": "66645860767-5q1qikkb7ro8v2u2jr3fauj6g20ccgkp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDg17KV3UafDJ-apLXlOCZKyGigq7dGLHY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "66645860767-5q1qikkb7ro8v2u2jr3fauj6g20ccgkp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
