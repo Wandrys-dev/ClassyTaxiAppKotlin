@@ -22,11 +22,11 @@
 
         <variable
             name="billingViewModel"
-            type="app.afleet.classytaxi.ui.BillingViewModel" />
+            type="nz.co.afleet.classytaxi.ui.BillingViewModel" />
 
         <variable
             name="subscriptionViewModel"
-            type="app.afleet.classytaxi.ui.SubscriptionStatusViewModel" />
+            type="nz.co.afleet.classytaxi.ui.SubscriptionStatusViewModel" />
     </data>
 
     <ScrollView
