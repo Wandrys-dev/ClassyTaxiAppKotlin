@@ -7,17 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:66645860767:android:e677c9a83da586fd969daa",
+        "mobilesdk_app_id": "1:66645860767:android:75bab9f3acba35b3969daa",
         "android_client_info": {
-          "package_name": "app.afleet.classytaxi"
+          "package_name": "nz.co.afleet.classytaxi"
         }
       },
       "oauth_client": [
         {
-          "client_id": "66645860767-vld4saf0brhb4j9odl98t26a3fh5r3fi.apps.googleusercontent.com",
+          "client_id": "66645860767-2vfa9d56ojtaijve5sak14bmf7p91eh8.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "app.afleet.classytaxi",
+            "package_name": "nz.co.afleet.classytaxi",
             "certificate_hash": "f1c4780f11bfe85e6597ea85b3c209dd5de094b0"
           }
         },
