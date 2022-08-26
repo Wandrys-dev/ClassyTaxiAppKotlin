@@ -17,11 +17,11 @@
 package app.afleet.classytaxi.data.network.retrofit
 
 import android.util.Log
-import com.example.subscriptions.BuildConfig.SERVER_URL
-import com.example.subscriptions.data.ContentResource
-import com.example.subscriptions.data.SubscriptionStatus
-import com.example.subscriptions.data.network.firebase.ServerFunctions
-import com.example.subscriptions.data.network.retrofit.authentication.RetrofitClient
+import app.afleet.classytaxi.BuildConfig.SERVER_URL
+import app.afleet.classytaxi.data.ContentResource
+import app.afleet.classytaxi.data.SubscriptionStatus
+import app.afleet.classytaxi.data.network.firebase.ServerFunctions
+import app.afleet.classytaxi.data.network.retrofit.authentication.RetrofitClient
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

@@ -1,6 +1,6 @@
 package app.afleet.classytaxi.billing
 
-import com.example.subscriptions.data.SubscriptionStatus
+import app.afleet.classytaxi.data.SubscriptionStatus
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat
