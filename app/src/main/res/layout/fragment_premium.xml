@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright 2018 Google LLC. All rights reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="billingViewModel"
+            type="com.example.subscriptions.ui.BillingViewModel" />
+
+        <variable
+            name="subscriptionViewModel"
+            type="com.example.subscriptions.ui.SubscriptionStatusViewModel" />
+
+        <variable
+            name="constants"
+            type="com.example.subscriptions.Constants" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ProgressBar
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:visibility="gone"
+                app:loadingProgressBar="@{subscriptionViewModel.loading}" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:updatePremiumViews="@{subscriptionViewModel.subscriptions}">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/premium_small_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> billingViewModel.openPlayStoreSubscriptions()}"
+                    app:backgroundTint="@color/secondaryColor"
+                    app:cardCornerRadius="@dimen/small_card_corner_radius">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/premium_restore_message"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_horizontal_margin"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                            android:layout_marginBottom="@dimen/activity_vertical_margin"
+                            android:textColor="@color/secondaryTextColor" />
+
+                        <TextView
+                            android:id="@+id/premium_grace_period_message"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_horizontal_margin"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                            android:layout_marginBottom="@dimen/activity_vertical_margin"
+                            android:text="@string/grace_period_message"
+                            android:textColor="@color/secondaryTextColor" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/premium_main_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/activity_horizontal_margin"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/premium_transfer_message"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_horizontal_margin"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                            android:layout_marginBottom="@dimen/activity_vertical_margin"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/premium_transfer_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="@{() -> subscriptionViewModel.transferSubscriptions()}"
+                                android:text="@string/transfer_button_text"
+                                android:theme="@style/ButtonTheme" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/transfer_message" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/premium_account_hold_message"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_horizontal_margin"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                            android:layout_marginBottom="@dimen/activity_vertical_margin"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/premium_account_hold_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="@{() -> billingViewModel.openSubscriptionPageOnGooglePlay()}"
+                                android:text="@string/fix_button_text"
+                                android:theme="@style/ButtonTheme" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true"
+                                android:contentDescription="@null"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/account_hold_rain_taxi_1200x560" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/activity_vertical_margin"
+                                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                                android:text="@string/account_hold_message" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/premium_account_paused_message"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_horizontal_margin"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                            android:layout_marginBottom="@dimen/activity_vertical_margin"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/premium_account_paused_button"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="@{() -> billingViewModel.openSubscriptionPageOnGooglePlay()}"
+                                android:text="@string/account_paused_button_text"
+                                android:theme="@style/ButtonTheme" />
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:adjustViewBounds="true"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/account_paused_airplane_1200x560" />
+
+                            <TextView
+                                android:id="@+id/premium_account_paused_message_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/activity_vertical_margin"
+                                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                                android:text="@string/account_paused_message" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/premium_premium_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="@{() -> billingViewModel.buyBasePlans(constants.PREMIUM_PREPAID_PLAN_TAG, constants.PREMIUM_PRODUCT, true)}"
+                                android:text="@string/premium_to_prepaid_button"
+                                android:theme="@style/ButtonTheme" />
+
+                            <ImageView
+                                android:id="@+id/premium_premium_image"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:loadImageOrHide="@{subscriptionViewModel.premiumContent.url}" />
+
+                            <TextView
+                                android:id="@+id/premium_premium_text"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                                android:layout_marginTop="@dimen/activity_vertical_margin"
+                                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                                android:text="@string/premium_auto_message"
+                                app:premiumContent="@{subscriptionViewModel.premiumContent}" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/prepaid_premium_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="@{() -> billingViewModel.buyBasePlans(constants.PREMIUM_PREPAID_PLAN_TAG, constants.PREMIUM_PRODUCT, true)}"
+                                android:text="@string/top_up_button"
+                                android:theme="@style/ButtonTheme" />
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="@{() -> billingViewModel.buyBasePlans(constants.PREMIUM_MONTHLY_PLAN, constants.PREMIUM_PRODUCT, true)}"
+                                android:text="@string/premium_monthly_conversion_button_text"
+                                android:theme="@style/ButtonTheme" />
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="@{() -> billingViewModel.buyBasePlans(constants.PREMIUM_YEARLY_PLAN, constants.PREMIUM_PRODUCT, true)}"
+                                android:text="@string/premium_yearly_conversion_button_text"
+                                android:theme="@style/ButtonTheme" />
+
+                            <ImageView
+                                android:id="@+id/prepaid_premium_image"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:loadImageOrHide="@{subscriptionViewModel.premiumContent.url}" />
+
+                            <TextView
+                                android:id="@+id/prepaid_premium_text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                                android:layout_marginTop="@dimen/activity_vertical_margin"
+                                android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                                app:premiumContent="@{subscriptionViewModel.premiumContent}"
+                                tools:text="@string/premium_prepaid_message" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/premium_paywall_message"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/activity_horizontal_margin"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                            android:layout_marginBottom="@dimen/activity_vertical_margin"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="@{() -> billingViewModel.buyBasePlans(constants.PREMIUM_MONTHLY_PLAN,constants.PREMIUM_PRODUCT, false)}"
+                                android:text="@string/monthly_plan_button_text"
+                                android:theme="@style/ButtonTheme" />
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="@{() -> billingViewModel.buyBasePlans(constants.PREMIUM_YEARLY_PLAN,constants.PREMIUM_PRODUCT, false)}"
+                                android:text="@string/yearly_plan_button_text"
+                                android:theme="@style/ButtonTheme" />
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="@{() -> billingViewModel.buyBasePlans(constants.PREMIUM_PREPAID_PLAN_TAG, constants.PREMIUM_PRODUCT, false)}"
+                                android:text="@string/prepaid_plan_button_text"
+                                android:theme="@style/ButtonTheme" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/premium_paywall_message" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/premium_upgrade_message"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/activity_horizontal_margin"
+                            android:layout_marginTop="@dimen/activity_vertical_margin"
+                            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                            android:layout_marginBottom="@dimen/activity_vertical_margin"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="@{() -> billingViewModel.buyBasePlans(constants.PREMIUM_MONTHLY_PLAN,constants.PREMIUM_PRODUCT, true)}"
+                                android:text="@string/monthly_upgrade_button_text"
+                                android:theme="@style/ButtonTheme" />
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="@{() -> billingViewModel.buyBasePlans(constants.PREMIUM_YEARLY_PLAN,constants.PREMIUM_PRODUCT, true)}"
+                                android:text="@string/yearly_upgrade_button_text"
+                                android:theme="@style/ButtonTheme" />
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="@{() -> billingViewModel.buyBasePlans(constants.PREMIUM_PREPAID_PLAN_TAG,constants.PREMIUM_PRODUCT, true)}"
+                                android:text="@string/premium_prepaid_upgrade_button_text"
+                                android:theme="@style/ButtonTheme" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/premium_upgrade_message" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </ScrollView>
+
+</layout>

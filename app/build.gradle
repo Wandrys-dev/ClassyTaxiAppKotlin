@@ -1,0 +1,148 @@
+/*
+ * Copyright 2018 Google LLC. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    compileSdkVersion androidCompileSdkVersion as Integer
+    defaultConfig {
+        // The applicationId should be set in the project gradle.properties files.
+        applicationId androidApplicationId
+        minSdkVersion androidMinimumSdkVersion as Integer
+        targetSdkVersion androidTargetSdkVersion as Integer
+        versionCode androidMobileVersionCode as Integer
+        versionName androidMobileVersionName
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.schemaLocation":
+                                      "$projectDir/schemas".toString()]
+            }
+        }
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+//      Some of the features in this application require the signing key of the APK
+//      to be registered in the Firebase Console. You can specify debug key information here.
+        debug {
+        }
+        release {
+            storeFile keystoreStoreFile
+            storePassword keystoreStorePassword
+            keyAlias keystoreKeyAlias
+            keyPassword keystoreKeyPassword
+        }
+    }
+    buildTypes {
+        debug {
+//          Some of the features in this application require the signing key of the APK
+//          to be registered in the Firebase Console. You can register your debug key signature
+//          in the Firebase Console and update the `signingConfigs` configuration above.
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "SERVER_URL", "\"https://example.com\"")
+        }
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "SERVER_URL", "\"https://example.com\"")
+        }
+    }
+
+    testOptions.unitTests {
+        includeAndroidResources = true
+        returnDefaultValues = true
+    }
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+        freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+    }
+}
+
+dependencies {
+    // Google Play Billing Library.
+    implementation "com.android.billingclient:billing-ktx:$billingVersion"
+
+    // AndroidX Library.
+    implementation "androidx.appcompat:appcompat:1.4.1"
+    implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation "androidx.leanback:leanback-preference:1.0.0"
+
+    implementation "com.google.android.material:material:$materialUiVersion"
+
+    implementation "com.google.android.gms:play-services-auth:$playServicesVersion"
+    implementation "com.google.code.gson:gson:$gsonVersion"
+
+    // Glide image library
+    kapt "com.github.bumptech.glide:compiler:$glideVersion"
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+
+    // Firebase Bill of Materials
+    implementation platform("com.google.firebase:firebase-bom:$firebaseBomVersion")
+    // Declare the dependency for the Firebase Authentication library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-messaging-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    // FirebaseUI Auth library.
+    implementation "com.firebaseui:firebase-ui-auth:$firebaseUiVersion"
+
+    //Room
+    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+
+    // Retrofit dependencies
+    implementation "com.squareup.okhttp3:logging-interceptor:3.8.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitSuiteVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitSuiteVersion"
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofitSuiteVersion"
+
+    // Test dependencies.
+    testImplementation "junit:junit:$jUnitVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+    testImplementation "androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion"
+    testImplementation "org.hamcrest:hamcrest:$hamcrestVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation "io.mockk:mockk:$mockKVersion"
+
+    // AndroidX Test - JVM testing
+    testImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
+    testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
+
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.4.0"
+    androidTestImplementation "androidx.room:room-testing:$roomVersion"
+    androidTestImplementation "io.mockk:mockk-android:$mockKVersion"
+}
