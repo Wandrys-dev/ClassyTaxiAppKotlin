@@ -68,7 +68,7 @@ buildscript {
         // Tools versions.
         gradleGoogleVersion = '4.3.10'
         gradleToolsVersion = '7.2.1'
-        kotlinVersion = '1.6.10'
+        kotlinVersion = '1.7.10'
 
         // Testing versions.
         androidXTestCoreVersion = '1.4.0'
