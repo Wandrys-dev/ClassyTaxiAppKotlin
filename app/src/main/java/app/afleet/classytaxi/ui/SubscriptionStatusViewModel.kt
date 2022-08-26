@@ -20,9 +20,9 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.subscriptions.SubApp
-import com.example.subscriptions.data.SubRepository
-import com.example.subscriptions.data.SubscriptionStatus
+import app.afleet.classytaxi.SubApp
+import app.afleet.classytaxi.data.SubRepository
+import app.afleet.classytaxi.data.SubscriptionStatus
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.coroutines.flow.MutableStateFlow

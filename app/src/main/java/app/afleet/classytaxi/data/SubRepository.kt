@@ -18,10 +18,10 @@ package app.afleet.classytaxi.data
 
 import android.util.Log
 import com.android.billingclient.api.Purchase
-import com.example.subscriptions.Constants
-import com.example.subscriptions.billing.BillingClientLifecycle
-import com.example.subscriptions.data.disk.SubLocalDataSource
-import com.example.subscriptions.data.network.SubRemoteDataSource
+import app.afleet.classytaxi.Constants
+import app.afleet.classytaxi.billing.BillingClientLifecycle
+import app.afleet.classytaxi.data.disk.SubLocalDataSource
+import app.afleet.classytaxi.data.network.SubRemoteDataSource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob

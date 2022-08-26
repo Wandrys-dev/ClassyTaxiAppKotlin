@@ -16,8 +16,8 @@
 
 package app.afleet.classytaxi.data.disk
 
-import com.example.subscriptions.data.SubscriptionStatus
-import com.example.subscriptions.data.disk.db.SubscriptionStatusDao
+import app.afleet.classytaxi.data.SubscriptionStatus
+import app.afleet.classytaxi.data.disk.db.SubscriptionStatusDao
 import kotlinx.coroutines.flow.Flow
 
 class SubLocalDataSource private constructor(

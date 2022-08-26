@@ -21,11 +21,11 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import com.android.billingclient.api.BillingFlowParams
 import com.android.billingclient.api.ProductDetails
-import com.example.subscriptions.Constants
-import com.example.subscriptions.SubApp
-import com.example.subscriptions.billing.deviceHasGooglePlaySubscription
-import com.example.subscriptions.billing.serverHasSubscription
-import com.example.subscriptions.data.SubscriptionStatus
+import app.afleet.classytaxi.Constants
+import app.afleet.classytaxi.SubApp
+import app.afleet.classytaxi.billing.deviceHasGooglePlaySubscription
+import app.afleet.classytaxi.billing.serverHasSubscription
+import app.afleet.classytaxi.data.SubscriptionStatus
 import kotlinx.coroutines.flow.StateFlow
 
 

@@ -17,8 +17,8 @@
 package app.afleet.classytaxi.data.network.firebase
 
 import android.util.Log
-import com.example.subscriptions.SubApp
-import com.example.subscriptions.data.SubscriptionStatusList
+import app.afleet.classytaxi.SubApp
+import app.afleet.classytaxi.data.SubscriptionStatusList
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import com.google.gson.Gson

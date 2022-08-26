@@ -17,14 +17,14 @@
 package app.afleet.classytaxi
 
 import android.app.Application
-import com.example.subscriptions.Constants.USE_FAKE_SERVER
-import com.example.subscriptions.billing.BillingClientLifecycle
-import com.example.subscriptions.data.SubRepository
-import com.example.subscriptions.data.disk.SubLocalDataSource
-import com.example.subscriptions.data.disk.db.AppDatabase
-import com.example.subscriptions.data.network.SubRemoteDataSource
-import com.example.subscriptions.data.network.firebase.FakeServerFunctions
-import com.example.subscriptions.data.network.firebase.ServerFunctions
+import app.afleet.classytaxi.Constants.USE_FAKE_SERVER
+import app.afleet.classytaxi.billing.BillingClientLifecycle
+import app.afleet.classytaxi.data.SubRepository
+import app.afleet.classytaxi.data.disk.SubLocalDataSource
+import app.afleet.classytaxi.data.disk.db.AppDatabase
+import app.afleet.classytaxi.data.network.SubRemoteDataSource
+import app.afleet.classytaxi.data.network.firebase.FakeServerFunctions
+import app.afleet.classytaxi.data.network.firebase.ServerFunctions
 
 /**
  * Android Application class. Used for accessing singletons.

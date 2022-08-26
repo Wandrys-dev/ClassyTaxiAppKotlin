@@ -4,7 +4,7 @@ package app.afleet.classytaxi.utils
 import android.app.Application
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.example.subscriptions.data.SubscriptionStatus
+import app.afleet.classytaxi.data.SubscriptionStatus
 import org.hamcrest.CoreMatchers.`is`
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Before

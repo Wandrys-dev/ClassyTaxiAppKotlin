@@ -16,11 +16,11 @@
 
 package app.afleet.classytaxi.data.network.firebase
 
-import com.example.subscriptions.Constants
-import com.example.subscriptions.billing.isBasicContent
-import com.example.subscriptions.billing.isPremiumContent
-import com.example.subscriptions.data.ContentResource
-import com.example.subscriptions.data.SubscriptionStatus
+import app.afleet.classytaxi.Constants
+import app.afleet.classytaxi.billing.isBasicContent
+import app.afleet.classytaxi.billing.isPremiumContent
+import app.afleet.classytaxi.data.ContentResource
+import app.afleet.classytaxi.data.SubscriptionStatus
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

@@ -17,14 +17,14 @@
 package app.afleet.classytaxi.utils
 
 import android.content.res.Resources
-import com.example.subscriptions.R
-import com.example.subscriptions.billing.isAccountHold
-import com.example.subscriptions.billing.isBasicContent
-import com.example.subscriptions.billing.isGracePeriod
-import com.example.subscriptions.billing.isPaused
-import com.example.subscriptions.billing.isPremiumContent
-import com.example.subscriptions.billing.isSubscriptionRestore
-import com.example.subscriptions.data.SubscriptionStatus
+import app.afleet.classytaxi.R
+import app.afleet.classytaxi.billing.isAccountHold
+import app.afleet.classytaxi.billing.isBasicContent
+import app.afleet.classytaxi.billing.isGracePeriod
+import app.afleet.classytaxi.billing.isPaused
+import app.afleet.classytaxi.billing.isPremiumContent
+import app.afleet.classytaxi.billing.isSubscriptionRestore
+import app.afleet.classytaxi.data.SubscriptionStatus
 
 /**
  * Return the resource string for the basic subscription button.

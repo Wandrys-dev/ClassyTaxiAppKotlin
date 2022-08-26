@@ -16,8 +16,8 @@
 
 package app.afleet.classytaxi.data.network
 
-import com.example.subscriptions.data.SubscriptionStatus
-import com.example.subscriptions.data.network.firebase.ServerFunctions
+import app.afleet.classytaxi.data.SubscriptionStatus
+import app.afleet.classytaxi.data.network.firebase.ServerFunctions
 import kotlinx.coroutines.flow.StateFlow
 
 /**

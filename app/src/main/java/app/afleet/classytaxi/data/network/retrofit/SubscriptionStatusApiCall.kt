@@ -1,8 +1,8 @@
 package app.afleet.classytaxi.data.network.retrofit
 
-import com.example.subscriptions.data.ContentResource
-import com.example.subscriptions.data.SubscriptionStatus
-import com.example.subscriptions.data.SubscriptionStatusList
+import app.afleet.classytaxi.data.ContentResource
+import app.afleet.classytaxi.data.SubscriptionStatus
+import app.afleet.classytaxi.data.SubscriptionStatusList
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET

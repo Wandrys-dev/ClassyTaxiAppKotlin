@@ -29,11 +29,11 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.android.billingclient.api.Purchase
-import com.example.subscriptions.Constants
-import com.example.subscriptions.R
-import com.example.subscriptions.SubApp
-import com.example.subscriptions.billing.BillingClientLifecycle
-import com.example.subscriptions.databinding.ActivityMainBinding
+import app.afleet.classytaxi.Constants
+import app.afleet.classytaxi.R
+import app.afleet.classytaxi.SubApp
+import app.afleet.classytaxi.billing.BillingClientLifecycle
+import app.afleet.classytaxi.databinding.ActivityMainBinding
 import com.firebase.ui.auth.AuthUI
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseUser

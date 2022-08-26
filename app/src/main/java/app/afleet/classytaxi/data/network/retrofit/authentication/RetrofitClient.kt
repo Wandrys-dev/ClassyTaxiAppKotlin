@@ -16,7 +16,7 @@
 
 package app.afleet.classytaxi.data.network.retrofit.authentication
 
-import com.example.subscriptions.BuildConfig
+import app.afleet.classytaxi.BuildConfig
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

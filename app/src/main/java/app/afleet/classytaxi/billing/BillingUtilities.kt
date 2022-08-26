@@ -17,8 +17,8 @@
 package app.afleet.classytaxi.billing
 
 import com.android.billingclient.api.Purchase
-import com.example.subscriptions.Constants
-import com.example.subscriptions.data.SubscriptionStatus
+import app.afleet.classytaxi.Constants
+import app.afleet.classytaxi.data.SubscriptionStatus
 
 /**
  * Return subscription for the provided Product, if it exists.

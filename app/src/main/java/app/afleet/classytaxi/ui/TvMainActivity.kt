@@ -23,10 +23,10 @@ import android.util.Log
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import com.android.billingclient.api.Purchase
-import com.example.subscriptions.Constants
-import com.example.subscriptions.R
-import com.example.subscriptions.SubApp
-import com.example.subscriptions.billing.BillingClientLifecycle
+import app.afleet.classytaxi.Constants
+import app.afleet.classytaxi.R
+import app.afleet.classytaxi.SubApp
+import app.afleet.classytaxi.billing.BillingClientLifecycle
 import com.firebase.ui.auth.AuthUI
 
 /**

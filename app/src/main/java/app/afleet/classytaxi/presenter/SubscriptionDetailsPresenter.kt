@@ -18,7 +18,7 @@ package app.afleet.classytaxi.presenter
 
 import android.text.TextUtils
 import androidx.leanback.widget.AbstractDetailsDescriptionPresenter
-import com.example.subscriptions.data.SubscriptionContent
+import app.afleet.classytaxi.data.SubscriptionContent
 
 /**
  * Presenter class used to bind and display metadata from a SubscriptionContent object
